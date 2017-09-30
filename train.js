@@ -40,6 +40,17 @@ $("#add-train").on("click", function(event) {
 		dateAdded: firebase.database.ServerValue.TIMESTAMP
 	});
 });
+
+// Firebase watcher + initial loader HINT: This code behaves similarly to .on("value")
+	// Log everything that's coming out of snapshot
+	console.log(childSnapshot.val().name);
+	console.log(childSnapshot.val().dest);
+	console.log(childSnapshot.val().train);
+	console.log(childSnapshot.val().freq);
+	console.log(childSnapshot.val().joinDate);
+
+// full list of items to the well
+$("#train-list").append("<div class='well'><span id='name'>" + childSnapshot.val().name + "</span><span> id='dest'> " + childSnapshot.val().dest + " </span><span id='train'> " + childSnapshot.val().train + "</span><span id='freq'> " childSnapshot.val().freq + "</span></div>");
 // Config database
 // set up Moment variables
 // add train - onclick function (Database.ref().push())
