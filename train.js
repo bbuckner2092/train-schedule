@@ -30,6 +30,15 @@ $("#add-train").on("click", function(event) {
 	dest = $("#input-destination").val().trim();
 	train = $("#input-first-train-time").val().trim();
 	freq = $("#input-frequency").val().trim();
+
+	// Code for handling the push
+	database.ref().push({
+		name:name,
+		dest: dest,
+		train: train,
+		freq: freq,
+		dateAdded: firebase.database.ServerValue.TIMESTAMP
+	});
 });
 // Config database
 // set up Moment variables
